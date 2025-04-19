@@ -52,7 +52,20 @@ Section text holds the instructions that the program needs to run, .rodata and .
 
 ### The elf layout in memory
 
+The elf header contains information about file type, architecture and othergloval properties, 
 
+
+Within elf files you ave program headers which describe the segments that can be loaded into memory
+
+section headers provide details about the sections used by the linker and the debugger 
+
+segments and secgtion are wat actually make up the executable i.e .bss, text, data, rodata
+
+ELF files can be 2 types,
+ET_EXEC which are statically linked executables that are loaded at fixed addresses in memory, 
+ET_DYN which are position independant executables and dynamically linked libraries that can be loaded at any address. 
+
+The kernel reads the program header table to figure out which segments need to be loaded into memory. Each PT_LOAD segment described a chunk of the file that will be mapped into memory i.e .text, .rodata and .data
 
 
 
